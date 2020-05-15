@@ -1,0 +1,120 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+        function insertar(num) {
+            document.formulario.pantalla.value = document.formulario.pantalla.value + num;
+        }
+
+        function igual() {
+            var igual = document.formulario.pantalla.value;
+            if (igual) {
+                document.formulario.pantalla.value = eval(igual);
+            }
+        }
+
+        function limpiar() {
+            document.formulario.pantalla.value = "";
+        }
+
+        function borrar() {
+            var eliminar = document.formulario.pantalla.value;
+            document.formulario.pantalla.value = eliminar.substring(0, eliminar.length - 1);
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .boton {
+            width: 60;
+            height: 40;
+            margin: 2;
+            cursor: pointer;
+            font-size: 25;
+            border: none;
+            color: white;
+            background-color: rgb(167, 171, 175);
+            font-family: monospace;
+        }
+
+        .pantalla {
+            width: 260;
+            font-size: 30;
+            border: none;
+            padding: 5;
+            margin: 2;
+            font-family: monospace;
+        }
+
+        .fondo {
+            background: linear-gradient(to right, rgb(67, 142, 192), rgb(146, 55, 146));
+            height: 100%;
+        }
+
+        p {
+            text-align: center;
+            margin: 20;
+            color: rgba(255, 255, 255, 0.705);
+            font-size: 16;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fondo"></div>
+    <div class="main">
+        <form name="formulario">
+            <input class="pantalla" name="pantalla" placeholder="calculadora">
+        </form>
+        <table>
+            <tr>
+                <td><input class="boton" type="button" value="C" onclick="limpiar()"></td>
+                <td><input class="boton" type="button" value="<" onclick="borrar()"></td>
+                <td><input class="boton" type="button" value="/" onclick="insertar('/')"></td>
+                <td><input class="boton" type="button" value="x" onclick="insertar('*')"></td>
+            </tr>
+            <tr>
+                <td><input class="boton" type="button" value="7" onclick="insertar(7)"></td>
+                <td><input class="boton" type="button" value="8" onclick="insertar(8)"></td>
+                <td><input class="boton" type="button" value="9" onclick="insertar(9)"></td>
+                <td><input class="boton" type="button" value="+" onclick="insertar('+')"></td>
+            </tr>
+            <tr>
+                <td><input class="boton" type="button" value="4" onclick="insertar(4)"></td>
+                <td><input class="boton" type="button" value="5" onclick="insertar(5)"></td>
+                <td><input class="boton" type="button" value="6" onclick="insertar(6)"></td>
+                <td><input class="boton" type="button" value="-" onclick="insertar('-')"></td>
+            </tr>
+            <tr>
+                <td><input class="boton" type="button" value="1" onclick="insertar(1)"></td>
+                <td><input class="boton" type="button" value="2" onclick="insertar(2)"></td>
+                <td><input class="boton" type="button" value="3" onclick="insertar(3)"></td>
+                <td rowspan="5"><input class="button" style="height: 87;" type="button" value="=" onclick="igual()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="boton" type="button" style="width: 125;" value="0" onclick="insertar(0)">
+                </td>
+                <td><input class="boton" type="button" value="." onclick="insertar('.')"></td>
+            </tr>
+        </table>
+
+        <p>By Wilmer Terrero</p>
+    </div>
+</body>
+
+</html>
